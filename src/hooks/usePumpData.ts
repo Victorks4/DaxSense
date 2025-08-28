@@ -6,6 +6,7 @@ export interface PumpSensorData {
   vibration: number;
   noise: number;
   pressure: number;
+  flowRate: number; // Vazão em L/min
   timestamp: Date;
 }
 
@@ -19,13 +20,15 @@ export const usePumpData = (pumps: Pump[]) => {
         temperature: { base: 45, variation: 15 },
         vibration: { base: 2.5, variation: 1.5 },
         noise: { base: 65, variation: 10 },
-        pressure: { base: 5, variation: 1.5 }
+        pressure: { base: 5, variation: 1.5 },
+        flowRate: { base: 150, variation: 30 } // L/min
       },
       gear: {
         temperature: { base: 50, variation: 20 },
         vibration: { base: 3, variation: 2 },
         noise: { base: 70, variation: 12 },
-        pressure: { base: 4, variation: 2 }
+        pressure: { base: 4, variation: 2 },
+        flowRate: { base: 120, variation: 25 } // L/min
       }
     };
 
@@ -48,6 +51,9 @@ export const usePumpData = (pumps: Pump[]) => {
       pressure: Math.max(0, config.pressure.base + 
         Math.sin(time * 0.8 + pumpSeed) * config.pressure.variation * 0.2 +
         (Math.random() - 0.5) * config.pressure.variation * 0.4),
+      flowRate: Math.max(0, config.flowRate.base + 
+        Math.sin(time * 0.6 + pumpSeed) * config.flowRate.variation * 0.3 +
+        (Math.random() - 0.5) * config.flowRate.variation * 0.4),
       timestamp: new Date()
     };
   };
@@ -59,6 +65,16 @@ export const usePumpData = (pumps: Pump[]) => {
       pumps.forEach(pump => {
         if (pump.status !== 'offline') {
           newData[pump.id] = generateSensorData(pump.id, pump.type);
+        } else {
+          // Para bombas offline, retornar dados zerados
+          newData[pump.id] = {
+            temperature: 0,
+            vibration: 0,
+            noise: 0,
+            pressure: 0,
+            flowRate: 0,
+            timestamp: new Date()
+          };
         }
       });
       

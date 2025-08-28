@@ -77,7 +77,7 @@ export const AlertPanel = ({ pumps, pumpData }: AlertPanelProps) => {
           id: `press-${pump.id}`,
           type: "critical",
           pump: pump.name,
-          message: `Pressão fora do padrão: ${data.pressure.toFixed(1)} bar`,
+          message: `Pressão fora do padrão: ${data.pressure.toFixed(1)} Kgf`,
           time: new Date(),
           parameter: "pressure"
         });
@@ -92,6 +92,27 @@ export const AlertPanel = ({ pumps, pumpData }: AlertPanelProps) => {
           message: `Ruído elevado: ${data.noise.toFixed(1)} dB`,
           time: new Date(),
           parameter: "noise"
+        });
+      }
+
+      // Flow rate alerts
+      if (data.flowRate < 80 || data.flowRate > 220) {
+        alerts.push({
+          id: `flow-${pump.id}`,
+          type: "critical",
+          pump: pump.name,
+          message: `Vazão fora do padrão: ${data.flowRate.toFixed(1)} L/min`,
+          time: new Date(),
+          parameter: "flowRate"
+        });
+      } else if (data.flowRate < 100 || data.flowRate > 200) {
+        alerts.push({
+          id: `flow-${pump.id}`,
+          type: "warning",
+          pump: pump.name,
+          message: `Vazão em atenção: ${data.flowRate.toFixed(1)} L/min`,
+          time: new Date(),
+          parameter: "flowRate"
         });
       }
     });
