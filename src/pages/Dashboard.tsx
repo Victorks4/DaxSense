@@ -164,17 +164,17 @@ const Dashboard = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border bg-card shadow-lg">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
+        <div className="container mx-auto px-4 sm:px-6 py-4">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div className="flex items-center gap-3">
-              <Shield className="h-8 w-8 text-primary" />
+              <Shield className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
               <div>
-                <h1 className="text-2xl font-bold text-foreground">DaxSense</h1>
-                <p className="text-sm text-muted-foreground">Sensoriamento avançado para operações seguras e eficientes.</p>
+                <h1 className="text-xl sm:text-2xl font-bold text-foreground">DaxSense</h1>
+                <p className="text-xs sm:text-sm text-muted-foreground">Sensoriamento avançado para operações seguras e eficientes.</p>
               </div>
             </div>
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-4 text-sm">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+              <div className="grid grid-cols-2 sm:flex sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm w-full sm:w-auto">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-status-healthy rounded-full"></div>
                   <span className="text-foreground">{healthyCount} Saudáveis</span>
@@ -192,7 +192,7 @@ const Dashboard = () => {
                   <span className="text-foreground">{offlineCount} Desligadas</span>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 w-full sm:w-auto">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button 
