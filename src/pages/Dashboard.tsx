@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { PumpCard } from "@/components/PumpCard";
 import { AlertPanel } from "@/components/AlertPanel";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -231,6 +232,8 @@ const Dashboard = () => {
                     )}
                   </DropdownMenuContent>
                 </DropdownMenu>
+                
+                <ThemeToggle />
                 
                 <Button onClick={addNewPump} className="bg-primary hover:bg-primary/90">
                   <Plus className="w-4 h-4 mr-2" />
