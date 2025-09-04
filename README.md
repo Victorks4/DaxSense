@@ -170,8 +170,6 @@ VITE_SUPABASE_ANON_KEY=sua_chave_anonima_supabase
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-## 👨‍💻 Autor
-
 
 ## 🙏 Agradecimentos
 
