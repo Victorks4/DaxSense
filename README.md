@@ -1,68 +1,192 @@
-# DaxSense
+# 🚀 DaxSense - Sistema de Monitoramento de Bombas
 
-## Project info
+<div align="center">
 
-Sistema de monitoramento inteligente de bombas de água com dashboard em tempo real.
+![DaxSense Logo](https://img.shields.io/badge/DaxSense-Monitoring%20System-blue?style=for-the-badge&logo=react)
+![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178C6?style=for-the-badge&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-5.4.19-646CFF?style=for-the-badge&logo=vite)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.17-38B2AC?style=for-the-badge&logo=tailwind-css)
 
-## Como executar o projeto
+</div>
 
-Para executar este projeto localmente, você precisa ter Node.js & npm instalados - [instalar com nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 📋 Descrição
 
-Siga estes passos:
+O **DaxSense** é uma aplicação web moderna para monitoramento em tempo real de bombas industriais. Desenvolvido com React e TypeScript, oferece uma interface intuitiva para acompanhar o status, performance e saúde de bombas centrífugas e de engrenagem em sistemas industriais.
 
-```sh
-# Passo 1: Clone o repositório
-git clone <YOUR_GIT_URL>
+## ✨ Funcionalidades Principais
 
-# Passo 2: Navegue para o diretório do projeto
-cd daxsense
+### 🔍 Monitoramento em Tempo Real
+- **Dados de Sensores**: Temperatura, vibração, ruído, pressão e vazão
+- **Atualização Automática**: Dados atualizados a cada 2 segundos
+- **Status Visual**: Indicadores coloridos para diferentes estados (Operacional, Atenção, Crítico, Offline)
 
-# Passo 3: Instale as dependências necessárias
-npm i
+### 📊 Visualização de Dados
+- **Gráficos de Tendência**: Análise temporal dos parâmetros de operação
+- **Cards Informativos**: Exibição clara de métricas importantes
+- **Alertas Inteligentes**: Sistema de notificações para condições críticas
 
-# Passo 4: Inicie o servidor de desenvolvimento
-npm run dev
+### ⚙️ Controle de Operação
+- **Ligar/Desligar Bombas**: Controle remoto das bombas
+- **Edição de Configurações**: Modificação de parâmetros das bombas
+- **Adição de Novas Bombas**: Interface para expandir o sistema
+
+### 🎨 Interface Moderna
+- **Design Responsivo**: Adaptável a diferentes tamanhos de tela
+- **Tema Escuro/Claro**: Alternância entre modos de visualização
+- **Componentes Reutilizáveis**: UI consistente e profissional
+
+## 🛠️ Tecnologias Utilizadas
+
+### Frontend
+- **React 18.3.1** - Biblioteca JavaScript para interfaces
+- **TypeScript 5.8.3** - Tipagem estática para JavaScript
+- **Vite 5.4.19** - Build tool e dev server
+- **React Router DOM 6.30.1** - Roteamento da aplicação
+- **TanStack Query 5.83.0** - Gerenciamento de estado e cache
+
+### UI/UX
+- **Tailwind CSS 3.4.17** - Framework CSS utilitário
+- **Radix UI** - Componentes acessíveis e customizáveis
+- **Lucide React** - Ícones modernos
+- **Recharts 2.15.4** - Biblioteca de gráficos
+- **Sonner 1.7.4** - Sistema de notificações
+
+### Desenvolvimento
+- **ESLint 9.32.0** - Linting de código
+- **PostCSS 8.5.6** - Processamento CSS
+- **Autoprefixer 10.4.21** - Prefixos CSS automáticos
+
+### Deploy
+- **Firebase Hosting** - Hospedagem e deploy automático
+
+## 🚀 Instalação e Uso
+
+### Pré-requisitos
+- Node.js (versão 18 ou superior)
+- npm ou yarn
+
+### 1. Clone o repositório
+```bash
+git clone https://github.com/seu-usuario/DaxSense.git
+cd DaxSense
 ```
 
-## Como editar este código
+### 2. Instale as dependências
+```bash
+npm install
+# ou
+yarn install
+```
 
-Existem várias maneiras de editar sua aplicação:
+### 3. Execute em modo de desenvolvimento
+```bash
+npm run dev
+# ou
+yarn dev
+```
 
-**Use sua IDE preferida**
+A aplicação estará disponível em `http://localhost:5173`
 
-Clone este repositório e faça push das mudanças. Você pode trabalhar localmente usando sua própria IDE.
+### 4. Build para produção
+```bash
+npm run build
+# ou
+yarn build
+```
 
-**Edite um arquivo diretamente no GitHub**
+### 5. Deploy no Firebase (opcional)
+```bash
+npm run firebase:deploy
+```
 
-- Navegue até o(s) arquivo(s) desejado(s).
-- Clique no botão "Edit" (ícone de lápis) no canto superior direito da visualização do arquivo.
-- Faça suas alterações e commit das mudanças.
+## 📁 Estrutura do Projeto
 
-**Use GitHub Codespaces**
+```
+DaxSense/
+├── src/
+│   ├── components/          # Componentes reutilizáveis
+│   │   ├── ui/             # Componentes de UI base
+│   │   ├── PumpCard.tsx    # Card de bomba individual
+│   │   ├── AlertPanel.tsx  # Painel de alertas
+│   │   └── TrendChart.tsx  # Gráficos de tendência
+│   ├── hooks/              # Custom hooks
+│   │   ├── usePumpData.ts  # Hook para dados das bombas
+│   │   └── useTheme.ts     # Hook para tema
+│   ├── pages/              # Páginas da aplicação
+│   │   ├── Dashboard.tsx   # Página principal
+│   │   └── NotFound.tsx    # Página 404
+│   ├── lib/                # Utilitários
+│   └── App.tsx             # Componente raiz
+├── public/                 # Arquivos estáticos
+├── supabase/              # Configuração Supabase
+└── package.json           # Dependências e scripts
+```
 
-- Navegue até a página principal do seu repositório.
-- Clique no botão "Code" (botão verde) próximo ao canto superior direito.
-- Selecione a aba "Codespaces".
-- Clique em "New codespace" para lançar um novo ambiente Codespace.
-- Edite arquivos diretamente dentro do Codespace e commit e push suas mudanças quando terminar.
+## 🔧 Configuração
 
-## Quais tecnologias são usadas neste projeto?
+### Variáveis de Ambiente
+Crie um arquivo `.env.local` na raiz do projeto:
 
-Este projeto é construído com:
+```env
+VITE_SUPABASE_URL=sua_url_supabase
+VITE_SUPABASE_ANON_KEY=sua_chave_anonima_supabase
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-- Supabase
-- React Query
+### Firebase (para deploy)
+1. Instale o Firebase CLI: `npm install -g firebase-tools`
+2. Faça login: `firebase login`
+3. Configure o projeto: `firebase init`
 
-## Como fazer deploy deste projeto?
+## 📈 Funcionalidades Detalhadas
 
-Você pode fazer deploy deste projeto em várias plataformas:
+### Monitoramento de Bombas
+- **Temperatura**: Monitoramento de temperatura operacional
+- **Vibração**: Análise de vibrações mecânicas
+- **Ruído**: Medição de níveis de ruído
+- **Pressão**: Controle de pressão do sistema
+- **Vazão**: Monitoramento de fluxo (L/min)
 
-- **Vercel**: Conecte seu repositório GitHub e faça deploy automaticamente
-- **Netlify**: Conecte seu repositório e configure o build
-- **GitHub Pages**: Use GitHub Actions para build e deploy
-- **Outros**: Qualquer plataforma que suporte aplicações React/Vite
+### Estados das Bombas
+- 🟢 **Operacional**: Funcionamento normal
+- 🟡 **Atenção**: Parâmetros próximos aos limites
+- 🔴 **Crítico**: Valores fora dos limites seguros
+- ⚫ **Offline**: Bomba desligada
+
+### Interface Responsiva
+- **Desktop**: Layout completo com todos os recursos
+- **Tablet**: Adaptação para telas médias
+- **Mobile**: Interface otimizada para smartphones
+
+## 🤝 Contribuição
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 👨‍💻 Autor
+
+**Seu Nome**
+- GitHub: [@seu-usuario](https://github.com/seu-usuario)
+- LinkedIn: [Seu LinkedIn](https://linkedin.com/in/seu-perfil)
+
+## 🙏 Agradecimentos
+
+- Comunidade React
+- Equipe do Vite
+- Contribuidores do Tailwind CSS
+- Desenvolvedores do Radix UI
+
+---
+
+<div align="center">
+
+**⭐ Se este projeto te ajudou, considere dar uma estrela!**
+
+</div>
